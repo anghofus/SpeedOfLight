@@ -1,9 +1,9 @@
 void setup() {
   initLed();
   initDisplay();
-  
   delay(300);
-  setText("HELLO", "WORLD");
+  
+  wifiConnect("PiOfLight", "SchnellerVerkehr");
 }
 
 void loop() {

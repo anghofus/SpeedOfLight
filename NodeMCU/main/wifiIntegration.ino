@@ -1,21 +1,18 @@
 #include <ESP8266WiFi.h>
 
 void wifiConnect(String ssid, String password){
-
-  Serial.print("Start");
-  Serial.begin(115200);
-  Serial.println();
-
+  IPAddress ip(192,168,4,200);
+  IPAddress gateway(192,168,4,1);   
+  IPAddress subnet(255,255,255,0);
+  
+  WiFi.config(ip, gateway, subnet);
   WiFi.begin(ssid.c_str(), password.c_str());
-
-  Serial.print("Connecting");
+  
+  setText("CONNECTING...", "");
   while (WiFi.status() != WL_CONNECTED)
   {
     delay(500);
-    Serial.print(".");
   }
-  Serial.println();
-
-  Serial.print("Connected, IP address: ");
-  Serial.println(WiFi.localIP());
+  
+  updateText("CONNECTED!", WiFi.localIP().toString());
 }
