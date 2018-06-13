@@ -1,7 +1,12 @@
 void setup() {
+  initLed();
   initDisplay();
-  setText("mark", "zuccerberg");
+  
+  delay(300);
+  setText("HELLO", "WORLD");
 }
 
 void loop() {
+  ledBlink(0, 500);
+  delay(300);
 }

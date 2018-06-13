@@ -1,12 +1,12 @@
 #include <ESP8266WiFi.h>
 
-void wifiConnect(String ssid, String password)
-{
+void wifiConnect(String ssid, String password){
+
   Serial.print("Start");
   Serial.begin(115200);
   Serial.println();
 
-  WiFi.begin(ssid, password);
+  WiFi.begin(ssid.c_str(), password.c_str());
 
   Serial.print("Connecting");
   while (WiFi.status() != WL_CONNECTED)
