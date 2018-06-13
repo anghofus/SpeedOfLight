@@ -9,6 +9,7 @@ void setup() {
   delay(300);
   ledBlink(1000);
   wifiConnect("PiOfLight", "SchnellerVerkehr");
+  delay(2000);
   server.begin();
 }
 
@@ -25,11 +26,7 @@ void loop() {
         header += c;
         if (c == '\n') {
           if (currentLine.length() == 0) {
-            
-            client.println("HTTP/1.1 200 OK");
-            client.println("Content-type:text/html");
-            client.println("Connection: close");
-            client.println();
+            updateText(readFromHeader(header), "");
             
             break;
           } else {
