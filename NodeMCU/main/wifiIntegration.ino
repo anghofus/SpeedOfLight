@@ -1,6 +1,6 @@
 #include <ESP8266WiFi.h>
 
-void wifiConnect(String ssid, String password){
+void wifiConnect(String ssid, String password) {
   IPAddress ip(192,168,4,200);
   IPAddress gateway(192,168,4,1);   
   IPAddress subnet(255,255,255,0);
@@ -9,8 +9,7 @@ void wifiConnect(String ssid, String password){
   WiFi.begin(ssid.c_str(), password.c_str());
   
   setText("CONNECTING...", "");
-  while (WiFi.status() != WL_CONNECTED)
-  {
+  while (WiFi.status() != WL_CONNECTED) {
     delay(500);
   }
   
