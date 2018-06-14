@@ -2,6 +2,7 @@
 
 void wifiConnect(String ssid, String password) {
   
+  WiFi.mode(WIFI_STA);
   WiFi.begin(ssid.c_str(), password.c_str());
   
   setText("CONNECTING...", "");

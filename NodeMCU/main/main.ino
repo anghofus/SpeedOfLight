@@ -11,14 +11,12 @@ void setup() {
   delay(300);
   ledBlink(1000);
   wifiConnect("PiOfLight", "SchnellerVerkehr");
-  delay(2000);
   server.begin();
 }
 
 void loop() {
   client = server.available();
   if (client) {
-    updateText("New Client.", "");
     String currentLine = "";
     while (client.connected()) {
       if (client.available()) {
@@ -34,6 +32,7 @@ void loop() {
             client.println();
             delay(1);
 
+            break;
           } else {
             currentLine = "";
           }
@@ -42,7 +41,8 @@ void loop() {
         }
       }
     }
-    header = "";
     client.stop();
+    header = "";
  }
+ delay(100);
 }
