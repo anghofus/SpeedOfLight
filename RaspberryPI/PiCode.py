@@ -15,7 +15,7 @@ if __name__ == '__main__':
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
     pygame.mixer.init()
-    while 1:
+    for i in range(0, 3):
         pygame.mixer.music.load("de_rettungsgasse_final.wav")
         pygame.mixer.music.play()
         while pygame.mixer.music.get_busy():
@@ -25,3 +25,4 @@ if __name__ == '__main__':
         while pygame.mixer.music.get_busy():
             continue
         time.sleep(2)
+ 
