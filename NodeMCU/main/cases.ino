@@ -26,9 +26,9 @@ void executeCase(String output) {
     case 1:
     output.replace("setLight=", "");
     if (output = "GREEN") {
-      digitalWrite(D5, HIGH);
-      delay(150);
-      digitalWrite(D5, LOW);
+      digitalWrite(D4, HIGH);
+      delay(500);
+      digitalWrite(D4, LOW);
     }
     break;
 

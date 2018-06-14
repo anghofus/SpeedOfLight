@@ -6,10 +6,8 @@ String header;
 String output;
 
 void setup() {
-  pinMode(D5, OUTPUT);
-  digitalWrite(D5, LOW);
-  initLed();
-  ledBlink(50);
+  pinMode(D4, OUTPUT);
+  digitalWrite(D4, LOW);
   initDisplay();
   wifiConnect("PiOfLight", "SchnellerVerkehr");
   server.begin();
