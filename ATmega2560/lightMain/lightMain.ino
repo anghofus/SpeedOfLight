@@ -3,7 +3,6 @@ int taster = 0;
 int phase = 0;
 
 void setup() {
-  // put your setup code here, to run once:
   pinMode(1, OUTPUT);
   pinMode(2, OUTPUT);
   pinMode(3, OUTPUT);
@@ -11,10 +10,8 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  
   taster = digitalRead(4);
-  
+
   if(taster == 1){
     i++;
     if(phase%2){
