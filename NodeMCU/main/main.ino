@@ -6,10 +6,11 @@ String header;
 String output;
 
 void setup() {
+  pinMode(D5, OUTPUT);
+  digitalWrite(D5, LOW);
   initLed();
+  ledBlink(50);
   initDisplay();
-  delay(300);
-  ledBlink(1000);
   wifiConnect("PiOfLight", "SchnellerVerkehr");
   server.begin();
 }

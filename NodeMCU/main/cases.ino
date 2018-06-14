@@ -10,9 +10,10 @@ void executeCase(String output) {
     case 0:
     if (output.indexOf("+") > 0) {
       output.replace("setText=", "");
-      linebreakPos = output.indexOf("");
+      linebreakPos = output.indexOf("+");
       displayLineOne = output.substring(0, linebreakPos);
-      displayLineTwo = output.substring(linebreakPos, output.length());
+      displayLineTwo = output.substring(linebreakPos + 1, output.length());
+      
       updateText(displayLineOne, displayLineTwo);
 
 
@@ -25,7 +26,9 @@ void executeCase(String output) {
     case 1:
     output.replace("setLight=", "");
     if (output = "GREEN") {
-      //DO STUFF HERE
+      digitalWrite(D5, HIGH);
+      delay(150);
+      digitalWrite(D5, LOW);
     }
     break;
 
