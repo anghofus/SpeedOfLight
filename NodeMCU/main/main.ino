@@ -1,8 +1,10 @@
 #include <ESP8266WiFi.h>
 
 WiFiServer server(80);
+WiFiClient client;
 String header;
-  
+String output;
+
 void setup() {
   initLed();
   initDisplay();
@@ -14,21 +16,24 @@ void setup() {
 }
 
 void loop() {
-  WiFiClient client = server.available();
- 
+  client = server.available();
   if (client) {
     updateText("New Client.", "");
     String currentLine = "";
     while (client.connected()) {
       if (client.available()) {
         char c = client.read();
-        Serial.write(c);
         header += c;
         if (c == '\n') {
           if (currentLine.length() == 0) {
-            updateText(readFromHeader(header), "");
-            
-            break;
+            output = readFromHeader(header);
+            executeCase(output);
+
+            client.println("HTTP/1.1 204 Zoomkat");
+            client.println();
+            client.println();
+            delay(1);
+
           } else {
             currentLine = "";
           }
